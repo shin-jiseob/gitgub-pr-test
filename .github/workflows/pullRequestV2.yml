@@ -11,5 +11,5 @@ jobs: 							## job 설정
         with: 					   ## Input 데이터 설정 
           GITHUB_TOKEN: ${{ secrets.PAT_CREATE_PULL_REQUEST }}
           head: ${{ github.ref }}
-          base: main
+          base: develop
           title: "An automatically created PR!"
