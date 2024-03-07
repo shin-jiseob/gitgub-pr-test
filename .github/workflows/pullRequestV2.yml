@@ -9,7 +9,7 @@ jobs: 							## job 설정
     - name: Create pull request    ## step 이름 설정
       uses: thomaseizinger/create-pull-request@master
       with: 					   ## Input 데이터 설정 
-        GITHUB_TOKEN: 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
+        GITHUB_TOKEN: ${{ secrets.PAT_CREATE_PULL_REQUEST }}
         head: ${{ github.ref }}
         base: main
         title: "An automatically created PR!"
