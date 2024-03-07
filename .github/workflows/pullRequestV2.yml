@@ -1,8 +1,8 @@
 name: "Create PR"    ## 워크플로우명
-on:
-  push:
-    branches:
-      [develop]
+on: push
+  #push:
+    #branches:
+      #[develop]
 
 jobs: 							## job 설정
   create-pr-on-push:            ## 실행할 job 아이디 
