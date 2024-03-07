@@ -1,4 +1,4 @@
-name: "Create PR"
+name: gitgub-pr-test
 on: push
 
 jobs:
@@ -12,5 +12,5 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.PAT_CREATE_PULL_REQUEST }}
         head: ${{ github.ref }}
-        base: gitgub-pr-test
+        base: develop
         title: "An automatically created PR!"
