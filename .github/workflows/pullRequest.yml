@@ -10,7 +10,7 @@ jobs:
     - name: Create pull request
       uses: thomaseizinger/create-pull-request@master
       with:
-        GITHUB_TOKEN: ${{ secrets.PAT_CREATE_PULL_REQUEST }}
+        GITHUB_TOKEN: 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
         head: ${{ github.ref }}
         base: develop
         title: "An automatically created PR!"
