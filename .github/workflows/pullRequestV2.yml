@@ -6,8 +6,7 @@ on: push
 
 jobs: 							## job 설정
   create-pr-on-push:            ## 실행할 job 아이디 
-    if: ${{ (contains(github.event.head_commit.message, 'BUG') 
-      || contains(github.event.head_commit.message, 'IMP')) }} #&& github.event.pull_request.merged == false
+    #if: ${{ (contains(github.event.head_commit.message, 'BUG') || contains(github.event.head_commit.message, 'IMP')) }} #&& github.event.pull_request.merged == false
     runs-on: ubuntu-latest
     steps:  					## steps 설정
       - uses: actions/checkout@1.0.0 ## uses를 사용해 외부 설정 가져오기 
