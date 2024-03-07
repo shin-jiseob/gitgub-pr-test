@@ -1,14 +1,14 @@
 name: "Create PR"    ## 워크플로우명
-on: push             ## 감지할 이벤트 -> Push 이벤트 감지! 
+on: push             ## 감지할 이벤트 -> Push 이벤트 감지!
 
 jobs: 							## job 설정
-  create-pr-on-push:            ## 실행할 job 아이디 
-    runs-on: ubuntu-latest      ## job 가상환경 인스턴스 
+  create-pr-on-push:            ## 실행할 job 아이디
+    runs-on: ubuntu-latest      ## job 가상환경 인스턴스
     steps:  					## steps 설정
-    - uses: actions/checkout@1.0.0 ## uses를 사용해 외부 설정 가져오기 
+    - uses: actions/checkout@v3 ## uses를 사용해 외부 설정 가져오기
     - name: Create pull request    ## step 이름 설정
       uses: shin-jiseob/gitgub-pr-test@develop
-      with: 					   ## Input 데이터 설정 
+      with: 					   ## Input 데이터 설정
         GITHUB_TOKEN: ${{ secrets.PAT_CREATE_PULL_REQUEST }}
         head: ${{ github.ref }}
         base: develop
