@@ -18,3 +18,4 @@ jobs: 							## job 설정
           head: ${{ github.ref }}
           base: develop
           title: ${{ github.event.head_commit.message }}
+          ref: 'main'
