@@ -1,16 +1,7 @@
-name: gitgub-pr-test
-on: push
-
-jobs:
-  create-pr-on-push:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Create pull request
-      uses: shin-jiseob/gitgub-pr-test
-      with:
-        GITHUB_TOKEN: ${{ secrets.PAT_CREATE_PULL_REQUEST }}
-        head: ${{ github.ref }}
-        base: develop
-        title: "An automatically created PR!"
+- name: "Just Create A Pull Request"
+  uses: shin-jiseob/gitgub-pr-test@develop
+  with:
+    github_token: ${{ secrets.PAT_CREATE_PULL_REQUEST }}
+    head: ${{ github.ref }}
+    title: "Test Pull Request" 
+    base: develop
