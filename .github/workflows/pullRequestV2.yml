@@ -15,5 +15,5 @@ jobs: 							## job 설정
         with: 					   ## Input 데이터 설정 
           GITHUB_TOKEN: ${{ secrets.PAT_CREATE_PULL_REQUEST }}
           head: ${{ github.ref }}
-          base: develop
+          base: main
           title: ${{ github.event.head_commit.message }}
