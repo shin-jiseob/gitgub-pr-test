@@ -17,6 +17,6 @@ jobs: 							## job 설정
           ref: main
           GITHUB_TOKEN: ${{ secrets.PAT_CREATE_PULL_REQUEST }}
           head: ${{ github.ref }}
-          base: develop
+          base: main
           assignees: jiseob@stockeeper.co
           title: ${{ github.event.head_commit.message }}
