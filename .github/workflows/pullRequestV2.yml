@@ -13,9 +13,10 @@ jobs:
       - name: Create pull request # step 이름 설정
         uses: thomaseizinger/create-pull-request@master #GitHub API
         with:
+          ref: develop
           GITHUB_TOKEN: ${{ secrets.PAT_CREATE_PULL_REQUEST }}
           head: ${{ github.ref }}
-          base: release
+          base: develop
           assignees: jiseob@stockeeper.co
           title: ${{ github.event.head_commit.message }}
       - run: echo "Create PR END"
