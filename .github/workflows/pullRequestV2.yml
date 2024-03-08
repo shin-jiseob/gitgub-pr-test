@@ -13,7 +13,6 @@ jobs:
       - name: Create pull request # step 이름 설정
         uses: thomaseizinger/create-pull-request@master #GitHub API
         with:
-          ref: main
           GITHUB_TOKEN: ${{ secrets.PAT_CREATE_PULL_REQUEST }}
           head: ${{ github.ref }}
           base: release
