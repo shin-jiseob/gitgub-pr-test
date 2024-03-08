@@ -1,4 +1,28 @@
-python: # 파이썬이라는 라벨을 
+name: Create Labeler # workflow 이름
+on:  # workflow를 trigger할 event
+  pull_request: # main 브랜치에 pr이 open되거나 새로운 commit이 push되었을 때
+    types: [opened, synchronize]
+    branches:
+      - 'feature/**'
+      - develop
+      - 'release/v[12].[0-9]+.[0-9]+'
+      - production
+      - main
+
+jobs:
+  label: # jobs 이름
+    runs-on: ubuntu-latest # set runner
+    permissions: # 해당 workflow의 접근 권한
+      contents: read # 레포 내용은 읽기만 하고
+      pull-requests: write # PR에 write할 수 있음!(github bot이 존재하니까!)
+
+    steps:
+      - name: Check Labels
+        uses: actions/labeler@v4 # 우리가 사용한 action의 version
+        with:
+          repo-token: "${{ secrets.PAT_CREATE_PULL_REQUEST }}" # 자동 생성되는 token
+
+python: # 파이썬이라는 라벨을
 - '**/*.py' # 전체 레포에서 .py에 변화가 생기면 추가 
 
 cpp:
