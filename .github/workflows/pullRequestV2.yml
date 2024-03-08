@@ -1,20 +1,28 @@
-name: "Create Pull Request" # WorkFlow 명
+# Stockeeper
+name: "Auto Create Pull Request"
 on:
   push:
     branches:
       - feature/*
 
 jobs:
-  create-pr-on-push:  # 실행될 jobId
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: hkusu/review-assign-action@v1
+        with:
+          assignees: ${{ github.actor }}
+          reviewers: shin-jiseob
+  create-pr-on-push:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Create PR Start"
       - uses: actions/checkout@1.0.0
-      - name: Create pull request # step 이름 설정
+      - name: Create pull request
         uses: thomaseizinger/create-pull-request@master #GitHub API
         with:
           ref: develop
-          GITHUB_TOKEN: ${{ secrets.PAT_CREATE_PULL_REQUEST }}
+          GITHUB_TOKEN: ${{ secrets.AUTO_CREATE_PULL_REQUEST }}
           head: ${{ github.ref }}
           base: develop
           assignees: jiseob@stockeeper.co
