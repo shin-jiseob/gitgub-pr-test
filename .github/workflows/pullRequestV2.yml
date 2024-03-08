@@ -2,7 +2,7 @@ name: "Create Pull Request" # WorkFlow 명
 on:
   push:
     branches:
-      - feature/**
+      - feature/*/*
 
 jobs:
   create-pr-on-push:  # 실행될 jobId
