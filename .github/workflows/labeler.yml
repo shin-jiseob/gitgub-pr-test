@@ -1,8 +1,9 @@
-name: Labeler # workflow 이름
+name: Create Labeler # workflow 이름
 on:  # workflow를 trigger할 event
   pull_request: # main 브랜치에 pr이 open되거나 새로운 commit이 push되었을 때
     types: [opened, synchronize]
     branches:
+      - 'feature/**'
       - develop
       - 'release/v[12].[0-9]+.[0-9]+'
       - production
@@ -19,4 +20,4 @@ jobs:
     - name: Check Labels
       uses: actions/labeler@v4 # 우리가 사용한 action의 version 
       with:
-        repo-token: "${{ secrets.PAT_CREATE_PULL_REQUEST}}" # 자동 생성되는 token
+        repo-token: "${{ secrets.PAT_CREATE_PULL_REQUEST }}" # 자동 생성되는 token
