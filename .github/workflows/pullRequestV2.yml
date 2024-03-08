@@ -1,20 +1,22 @@
-name: "Create PR"    ## 워크플로우명
+name: "Create Pull Request" # WorkFlow 명
 on:
   push:
     branches:
       - feature/*
 
-jobs: 							## job 설정
-  create-pr-on-push:            ## 실행할 job 아이디 
-    #if: ${{ (contains(github.event.head_commit.message, 'BUG') || contains(github.event.head_commit.message, 'IMP')) }} #&& github.event.pull_request.merged == false
+jobs:
+  create-pr-on-push:  # 실행될 jobId
     runs-on: ubuntu-latest
-    steps:  					## steps 설정
-      - run: echo "깃 REF ${{ github.ref }}."
-      - uses: actions/checkout@1.0.0 ## uses를 사용해 외부 설정 가져오기 
-      - name: Create pull request    ## step 이름 설정
-        uses: thomaseizinger/create-pull-request@master
-        with: 					   ## Input 데이터 설정 
+    steps:
+      - run: echo "Create PR Start"
+      - uses: actions/checkout@1.0.0
+      - name: Create pull request # step 이름 설정
+        uses: thomaseizinger/create-pull-request@master #GitHub API
+        with:
+          ref: develop
           GITHUB_TOKEN: ${{ secrets.PAT_CREATE_PULL_REQUEST }}
           head: ${{ github.ref }}
-          base: main
+          base: develop
+          assignees: jiseob@stockeeper.co
           title: ${{ github.event.head_commit.message }}
+      - run: echo "Create PR END"
