@@ -19,3 +19,4 @@ jobs: 							## job 설정
 
 ....
 dddd
+feature/v3.0.6/shop-product-list-update
