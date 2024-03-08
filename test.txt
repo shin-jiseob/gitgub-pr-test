@@ -15,7 +15,4 @@ jobs: 							## job 설정
         title: "An automatically created PR!"
 
 
-
-
-....
-dddd
+ feature/v3.1.2/shop-product-list-update
